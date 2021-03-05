@@ -14,8 +14,6 @@ function nextNumber(valor) {
     }
     let x = +valor2[i - 1];
     let smallest = i;
-    console.log(valor2[i - 1]);
-    console.log(valor2[smallest]);
     for (let j = i + 1; j < length; j++) {
         if (+valor2[j] > x && +valor2[j] < +valor2[smallest]) {
             smallest = j;

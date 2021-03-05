@@ -1,5 +1,5 @@
 function onePunch(cadena: string): string {
-  return cadena == '' ? 'Broken!' :  cadena.replace(/[eaEA]/g, ''); 
+  return cadena == '' ? 'Broken!' :  cadena.replace(/[eaEA]/g, '').split(" ").sort().join(' '); 
 }
 
 console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'));
