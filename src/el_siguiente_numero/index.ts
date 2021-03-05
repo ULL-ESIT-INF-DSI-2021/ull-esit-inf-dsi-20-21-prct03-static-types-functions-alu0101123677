@@ -37,16 +37,9 @@ function nextNumber(valor: number): number {
     str2 = str2 + valor2[z];    
   }
   
-  let length2: number = str2.length;
-  let sort = str2.split('');
-  sort.sort();
-   
-  str2 = '';
-  for (let z = 0; z < length2; z++) {
-    str2 = str2 + sort[z];  
-  }
+  let sort = str2.split('').sort().join('');
 
-  str = str + str2;
+  str = str + sort;
 
   return +str;
 }

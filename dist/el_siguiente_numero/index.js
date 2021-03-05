@@ -29,14 +29,8 @@ function nextNumber(valor) {
     for (let z = i; z < length; z++) {
         str2 = str2 + valor2[z];
     }
-    let length2 = str2.length;
-    let sort = str2.split('');
-    sort.sort();
-    str2 = '';
-    for (let z = 0; z < length2; z++) {
-        str2 = str2 + sort[z];
-    }
-    str = str + str2;
+    let sort = str2.split('').sort().join('');
+    str = str + sort;
     return +str;
 }
 console.log('El siguiente numero reordenando las cifras de 9 es: ' + nextNumber(534976));
