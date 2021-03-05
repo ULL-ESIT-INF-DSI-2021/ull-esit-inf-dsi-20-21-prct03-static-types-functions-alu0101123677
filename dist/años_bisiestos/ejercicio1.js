@@ -20,9 +20,12 @@ function isLeapYear(year) {
         return false;
     }
 }
-if (isLeapYear(400)) {
-    console.log('El año es bisiesto');
+function main() {
+    if (isLeapYear(400)) {
+        console.log('El año es bisiesto');
+    }
+    else {
+        console.log('El año no es bisiesto');
+    }
 }
-else {
-    console.log('El año no es bisiesto');
-}
+main();
