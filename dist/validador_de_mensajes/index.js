@@ -1,5 +1,5 @@
 function isValid(cadena) {
-    if (cadena == ' ') {
+    if (cadena == '') {
         return true;
     }
     else {
@@ -36,7 +36,7 @@ function isValid(cadena) {
         return verificar;
     }
 }
-if (isValid('5hello10hkgkguhkuhkhkh')) {
+if (isValid('')) {
     console.log('Mensaje válido');
 }
 else {
