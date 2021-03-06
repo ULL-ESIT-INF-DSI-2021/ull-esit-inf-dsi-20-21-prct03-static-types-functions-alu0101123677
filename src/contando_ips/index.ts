@@ -4,6 +4,14 @@ function ipsInRange(cadena: string, cadena2: string): number {
   let valor: number = 0;
   
   let array: object = [,,,];
+
+
+  for (let i = 3; i >= 0; i--) {
+    let potencia = 1;
+    ip1[i] = ip1[i] + 256 ** potencia;
+    ip2[i] = ip2[i] + 256 ** potencia;
+    potencia = potencia + 1;
+  }
   
 
 
