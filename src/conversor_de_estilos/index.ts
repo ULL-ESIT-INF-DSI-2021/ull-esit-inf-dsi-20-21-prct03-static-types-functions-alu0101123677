@@ -37,4 +37,5 @@ function fromCameToSnakeCase(cadena: string): string {
 
 console.log(fromSnakeToCamelCase('the_stealth_warrior'));
 console.log(fromCameToSnakeCase('theStealhWarrior'));
-  
+
+
