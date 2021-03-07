@@ -26,7 +26,7 @@ Para el desarrollo de la práctica cómo tal primero hay que hacer unas preparac
 
 ### Ejercicio 1 Años bisiestos.
 
-En este ejercicio creamos la función isLeapYear en la cual recibe un valor númerico positivo, que inidica un año, y retorna un booleano si el año es bisiesto. Para realizarlo hacemos una serie de if y else anidados con las condiciones puestas en el enunciado que son:
+En este ejercicio creamos la función isLeapYear en la cual recibe un valor númerico positivo, que inidica un año, y retorna un booleano. Para realizarlo hacemos una serie de if y else anidados con las condiciones puestas en el enunciado, que son:
 
 * Cada año debe ser divisible por 4
 * Si es divisible por 100 no es bisiesto
@@ -60,6 +60,10 @@ function isLeapYear(year: number): boolean {
 
 ### Ejercicio 2 Notación decimal y factorial.
 
+En este ejercicio creamos tres funciones:
+
+La función factorial recibe un valor number y retorns un number. Se utiliza con la función factorialtoDecimal para conseguir de manera recursiva el factorial.
+
 ```typescript
 function factorial(valor: number): number {
   if (valor == 0) {
@@ -68,6 +72,8 @@ function factorial(valor: number): number {
   return valor * factorial(valor - 1);
 }
 ```
+
+La función factorialToDecimal recibe un string y retorna un tipo number. Recorremos toda la cadena caracter a caracter, guardamos en una variable number el valor de la cadena en esa posición y lo multiplicamos con el factorial obtenido en la función factorial, este valor obtenido se va incrementando constantemente mientras dure el bucle para conseguir de esta manera el valor decimal.
 
 ```typescript
 function factorialToDecimal(cadena: string): number {
@@ -86,6 +92,10 @@ function factorialToDecimal(cadena: string): number {
   return total;
 }
 ```
+
+La función decimalToFactorial recibe un number y retornamos un string. Realizamos un bucle while mientras que el valor de la variable valor sea distinto de 0, en el bucle guardamos en formato string el resultado de realiza el modulo de valor con la varaiable i, inicializa a 1 e incrementada en 1 con cada interación. este string obtenido se lo concatenaremos en otro string con cada iteración y modificaremos el valor de la variable valor y cuando salgamos del bucle tendremos un string con el factorial correspondiente pero de manera inversa.
+
+Lo último que haremos será convertirlo en un array, ordenarlo de manera inversa y convertirlo de nuevo en un string para así retornarlo.
 
 ```typescript
 function decimalToFactorial(valor: number): string {
@@ -109,6 +119,10 @@ function decimalToFactorial(valor: number): string {
 ```
 
 ### Ejercicio 3 Validador de mensajes.
+
+En este ejercicio creamos la función isValid para validar mensajes si cumplen ciertas condiciones, a la función le pasamos un string y nos retorna un booleano. En la función creamos un string con los valores del 0 al 9 y diversos string vacios, así como de tipo number y booleanos. 
+
+Recorremos todo el string pasado por parametro con un for y vamos comparando caracter a caracter si es un valos númerico o un carácter. Si es un número lo va guardando en un string vacio y si es un carácter en otro string vacio, una vez que tengamos los dos string procedemos a comparar si el valor del primer string transformado en un tipo de datos number es igual a la longitud del segundo string. Cuando son iguales pone la variable verificar a true y si no lo son lo ponen a false. Cuandos se halla recorrido todo el string pasado por parametro retornamos la variable verificar.
 
 ```typescript
 function isValid(cadena: string): boolean {
@@ -155,6 +169,10 @@ function isValid(cadena: string): boolean {
 
 ### Ejercicio 4 Conversor de estilos.
 
+En este ejercico creamos dos funciones:
+
+la función fromSnakeToCamelCase nos permite pasar del formato snake al formato camel. Para esto recibe un string y retorna un string. Recorremos toda la cadena recibida y cuando encuentre un guión bajo ponemos la variable booleana a true. Para cuando encuentre un caracter del alfabeto este lo introducirá en una cadena que inicialmente se encuentre vacia, siempre que la variable booleana este a true guardará el caracter en mayusculas y pondrá la variable a false. Cuando halla recorrido toda la cadena dada retornará un string con la misma cadena pero en formato camel case.
+
 ```typescript
 function fromSnakeToCamelCase(cadena: string): string {
   var result:string = '';
@@ -178,6 +196,8 @@ function fromSnakeToCamelCase(cadena: string): string {
 }
 ```
 
+la función fromCameToSnakeCase nos permite pasar del formato camel al formato case. Para esto recibe un string y retorna un string. Recorremos toda la cadena recibida y la vamos comparando con un string que tiene el alfabeto en minusculas, en el momentos que la función search falle nos inidicará que en esa posición hay una mayuscula. Cuando no se encuentre una mayuscula introducirá el caracter en un string vacio y cuando si se encuentre una mayuscula introducira primero el caracter _ y luego el caracter correspondiente. Cuando terminemos de recorrer toda la cadena utilizamos la función toLowerCase en el string resultado y los retornamos.
+
 ```typescript
 function fromCameToSnakeCase(cadena: string): string {
   var result:string = '';
@@ -197,6 +217,8 @@ function fromCameToSnakeCase(cadena: string): string {
 
 ### Ejercicio 5 Un solo golpe.
 
+En este ejericio creamos la función onePunch la cual recibe un string y retorna una string. Para esta función retornamos directamente haciendo un operador ternario, si la cadena estuviera vacia devolvemos el string 'Broken!', si no lo está quitamos todas las 'e' y las 'a' con con un replace global, luego lo convertimos en un array con la función split, lo ordenamos con la función sort y lo volvemos a convertir en un string con la función join.
+
 ```typescript
 function onePunch(cadena: string): string {
   return cadena == '' ? 'Broken!' :  cadena.replace(/[eaEA]/g, '').split(" ").sort().join(' '); 
@@ -204,6 +226,8 @@ function onePunch(cadena: string): string {
 ```
 
 ### Ejercicio 6 Conversor ISBN.
+
+En este ejericio creamos la función isValidPunch la cual recibe un string y retorna un booleano. Inicializamos dos variables tipo number, una a 0 y otra a 10. Continuamos quitando todos los guiones con la función replace y empezamos a recorrer todo el string. la intención es que en cada interación coga la variable a cero y se la sume al valor actual del caracter de la cadena multiplicada por la variable inicializa a 10, y luego reducir esta ultima variable en 1 y de esta manera conseguir el último valor antes de aplicarle el modulo con 11. También en los momentos en los que se encuentre un caracter x o X este lo convertira a 10. y una vez recorrida toda la cadena y con el valor de number le aplicamos el modulo de 11, si es igual a 0 retornamos true y si no lo es retornamos false.
 
 ```typescript
 function isValidISBN(cadena: string): boolean {
@@ -232,6 +256,12 @@ function isValidISBN(cadena: string): boolean {
 ```
 
 ### Ejercicio 7 El siguiente número.
+
+En este ejericio creamos la función nextNumber. esta función recibe un tipo number y retornaotro number. El valor recibido lo pasamos a string y conseguimos su longitud asi como en un array basado en el string.
+
+Realizamos un for a lo largo del array en donde vamos comparando los valores del array para ver si es posible ordenarlo y conseguir también la posición que actuará como pivote.
+
+Lo siguiente será encontrar el número de menor valor pero siendo de mayor valor que del pivote a la derecha de este. Una vez encontrado intercambiamos las posiciones y ordenamos todo lo que se encuentre a la derecha de ese valor que hemos intercambiado de posición de menor a mayor. Realizado esto ya podremos devolver el siguiente número que se ha conseguido reposicionando los digitos.
 
 ```typescript
 function nextNumber(valor: number): number {
@@ -283,6 +313,12 @@ function nextNumber(valor: number): number {
 
 ### Ejercicio 8 Contando IPs.
 
+En este ejericio creamos la función ipsInRange en la cual le pasamos dos string y retornamos un tipo number. Convertimos en array las dos Ips que hemos recibido basandonos en los puntos que tienen las IPs.
+
+Inicializamos a su vez todas las variables de tipo number que vamos a usar a 0 y empezamos un bucle for basado en los arrays de las IPs, la idea se basa en multiplicar cada posición correspondiente del array de la ip con el valos 256 elevado a la potencia correspondiente y guardarlo en una varaible que se irá incrementando conforme se va realizando el for.
+
+Cuando tengamos el valor total de la operación para cada ip las restamos y obtenemos su valor absoluto para así conseguir el rango que hay entre ellas de IPs disponibles.
+
 ```typescript
 function ipsInRange(cadena: string, cadena2: string): number {
   let ip1 = cadena.split('.');
@@ -311,10 +347,16 @@ function ipsInRange(cadena: string, cadena2: string): number {
 
 ### Ejercicio 9 Entrenador Pokemon.
 
+En este ejericio creamos la función damage, a la cual le pasamos dos string con los tipos de los pokemon y dos number con el ataque y la defensa, a su vez la función nos devolverá el daño realizado.
+
+Lo primero es que haremos será comparar si los dos tipos son iguales, si lo són entonces retornamos la formula con su respectivo valor de efectividad.
+
+Si no son iguales se irá comprodando en cada if para saber de que tipo es el pokemon atacante, cuando entre en su if correspondiente irá comprobando en los if anidados el tipo del pokemon atacado, y dependiendo del tipo retornará la formula con su respectivo valor de efectividad.
+
 ```typescript
 function damage(type: string, type_oponent: string, attack: number, defense: number): number {
 
-    if (type == type_oponent)
+  if (type == type_oponent)
     return 50 * (attack / defense) * 0.5;
 
   if (type == 'fuego') {
@@ -356,6 +398,16 @@ function damage(type: string, type_oponent: string, attack: number, defense: num
 ```
 
 ### Ejercicio 10 Validador de nombre usuario.
+
+En este ejericio creamos la función isValidUsername que recibe un string y devuelve un booleano. La cadena pasará por distintas comprobaciones para ver si es válida, si no es válida en alguna comprobación retornará un false.
+
+En la primera comprobación comparamos el tamaño de la cadena con 4 y con 30, si es menor de 4 o mayor que 30 no será una cadena válida.
+
+En la segunda comprobación comprobamos si la posición inicial y final del string son guiones bajos, si lo son retornará un false.
+
+Para la tercera comprobación creamos tres string que contengan el alfabeto en minusculas, el alfabeto en mayusculas y símbolos. Recorremos ahora toda la cadena y cuando se encuentre un caracter de los buscados pondrá una variable booleana a true, cuando haya una de las variables booleanas a false retornamos un false.
+
+Para la cuarta comprobación añadimos un string con números del 1 al 9 y recorremos toda la cadena con un bucle for. Dentro del bucle for tenemos un if que compara cada caracter para ver si coindicide con una de los string creados con anterioridad, dentro de los if  realizamos la cuenta de repeticiones de un mismo caracter y ponemos a 0 las demás repeticiones, en el momento en el que se realizen 3 repeticiones retornará false.
 
 ```typescript
 function isValidUsername(cadena: string): boolean {
