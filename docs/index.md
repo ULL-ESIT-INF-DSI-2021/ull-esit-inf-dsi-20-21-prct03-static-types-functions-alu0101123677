@@ -32,7 +32,7 @@ En este ejercicio creamos la función isLeapYear en la cual recibe un valor núm
 * Si es divisible por 100 no es bisiesto
 * Los años divisibles por 400 son bisiestos
 
-```Typescript
+```typescript
 function isLeapYear(year: number): boolean {
   var resto:number; 
 
