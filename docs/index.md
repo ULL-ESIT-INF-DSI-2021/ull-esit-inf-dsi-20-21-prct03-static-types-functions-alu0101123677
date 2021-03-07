@@ -26,7 +26,13 @@ Para el desarrollo de la práctica cómo tal primero hay que hacer unas preparac
 
 ### Ejercicio 1 Años bisiestos.
 
-```typescript
+En este ejercicio creamos la función isLeapYear en la cual recibe un valor númerico positivo, que inidica un año, y retorna un booleano si el año es bisiesto. Para realizarlo hacemos una serie de if y else anidados con las condiciones puestas en el enunciado que son:
+
+* Cada año debe ser divisible por 4
+* Si es divisible por 100 no es bisiesto
+* Los años divisibles por 400 son bisiestos
+
+```Typescript
 function isLeapYear(year: number): boolean {
   var resto:number; 
 
@@ -419,7 +425,7 @@ function isValidUsername(cadena: string): boolean {
 
 ## 4. Conclusiones
 
-
+En conclusión, este tipos de ejercicios para irse iniciando en **Typescript** y si ya se tiene conocimiento en programación son bastante entretenidos, útiles y diveros, si es cierto, que hay alguno que otro que son más complicados, pero se pueden llegar a las soluciones de diversas maneras. 
 
 ## 5. Bibliografía
 
